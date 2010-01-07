@@ -1,3 +1,3 @@
-hn. Scrabit - About
+h1. Scrabit - About
 
 p. A GNOME applet, that allows you to grab screenshots in less than 3 clicks and/or less than 2 keystrokes onto the scrabit server and copy the urls for sharing directly into your clipboard.

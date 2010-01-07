@@ -2,10 +2,10 @@ module Scrabit
   class PreferencesWindow < Gtk::Window
     def initialize(name)
       super name
-        set_title(name)
-        signal_connect('destroy') { self.destroy } 
-        init_UI
-        show_all
+      set_title(name)
+      signal_connect('destroy') { self.destroy } 
+      init_UI
+      show_all
     end
     def init_UI
       fixed = Gtk::Fixed.new

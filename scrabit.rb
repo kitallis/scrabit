@@ -1,5 +1,5 @@
 $LOAD_PATH.unshift File.dirname(__FILE__)
- 
+
 module Scrabit
   require 'gtk2'
   require 'fileutils'	
@@ -16,5 +16,5 @@ module Scrabit
 end
 
 if __FILE__ == $0
-	Scrabit.Main
+  Scrabit.Main
 end

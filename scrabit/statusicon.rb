@@ -31,28 +31,28 @@ module Scrabit
 
     # using curb (libcurl(3)), more control
     def on_click_scrab
-	begin 
-	`import upload_buffer.png` 
-	rescue 
-		puts "ImageMagick error"
-		raise
-	end
-	@post_data << Curl::PostField.file('', 'upload_buffer.png')
-	Uri.multipart_form_post = true
-	Uri.http_post(*@post_data)
-        url = "http://scrabit.appspot.com/#{Uri.body_str}"
+      begin 
+        `import upload_buffer.png` 
+      rescue 
+       	puts "ImageMagick error"
+	raise
+      end
+      @post_data << Curl::PostField.file('', 'upload_buffer.png')
+      Uri.multipart_form_post = true
+      Uri.http_post(*@post_data)
+      url = "http://scrabit.appspot.com/#{Uri.body_str}"
+      @save.set_text("#{url}")
+      begin
+        `notify-send "Your image has been successfully uploaded : #{url}"`
+      rescue
+	puts "notify-send library error"
+      else
+	puts "Notification sent"	
+      ensure # that the url is copied in the clipboard
+	puts "Copied to clipboard"
 	@save.set_text("#{url}")
-	begin
-  	`notify-send "Your image has been successfully uploaded : #{url}"`
-  	rescue
-		puts "notify-send library error"
-	else
-		puts "Notification sent"	
-	ensure # that the url is copied in the clipboard
-		puts "Copied to clipboard"
-		@save.set_text("#{url}")
-	end
- 	FileUtils.rm %w( upload_buffer.png )
+      end
+      FileUtils.rm %w( upload_buffer.png )
     end
 
     # will start working on, when the GAE setup works	

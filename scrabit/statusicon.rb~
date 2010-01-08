@@ -40,7 +40,7 @@ module Scrabit
       @post_data << Curl::PostField.file('img', 'upload_buffer.png')
       Uri.multipart_form_post = true
       Uri.http_post(*@post_data)
-      code = Uri.body_str.to_s
+      puts code = Uri.body_str.to_s
       url = "http://scrabit.appspot.com/#{code}"
       @save.set_text("#{url}")
       begin

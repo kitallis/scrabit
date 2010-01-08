@@ -32,7 +32,7 @@ module Scrabit
     # using curb (libcurl(3)), more control
     def on_click_scrab
       begin 
-        `imports upload_buffer.png` 
+        `import upload_buffer.png` 
       rescue 
        	puts "ImageMagick error"
 	raise
